@@ -2,8 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: url('../assets/background.png') no-repeat center center fixed;
-    background-size: cover;
+    background: #000;
     color: #fff;
     font-family: 'VT323', monospace;
 }
@@ -13,11 +12,13 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 h1.title {
     color: #00ff00;
     font-size: 3rem; /* Increased font size */
+    z-index: 2; /* Ensure the title is above the overlay */
 }
 
 .button.glitch {
@@ -32,6 +33,7 @@ h1.title {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2; /* Ensure buttons are above the overlay */
 }
 
 .button.glitch::before,
@@ -102,4 +104,16 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/background.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.2; /* Adjust opacity as needed */
+    z-index: 1; /* Ensure the overlay is behind other elements */
 }
