@@ -1,15 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #00FF00;
     margin: 0;
     padding: 0;
     text-align: center;
+    background: url('../assets/welcome-back-message-on-green-old-terminal-screen-400-108368128.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem;
-    color: white;
+    color: #00FF00;
 }
 
 main {
@@ -27,10 +30,10 @@ li {
 
 a {
     text-decoration: none;
-    color: #4CAF50;
+    color: #00FF00;
     font-size: 1.2rem;
 }
 
 a:hover {
-    color: #45a049;
+    color: #00CC00;
 }
