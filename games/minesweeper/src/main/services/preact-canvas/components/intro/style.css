@@ -1,0 +1,163 @@
+/**
+ * Copyright 2019 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.intro {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  min-height: min-content;
+  padding-bottom: 3rem;
+}
+
+.showbiz-intro {
+  width: 100%;
+  max-width: 648px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 var(--side-margin);
+  margin: 2.5rem 0;
+}
+
+.showbiz-loading {
+  padding-top: 20%;
+}
+
+.start-form {
+  display: flex;
+  flex-flow: column;
+  padding: 0 var(--side-margin);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 33rem;
+  --item-margin: 0.4rem;
+}
+
+.label {
+  position: relative;
+  display: block;
+  --padding-sides: 0.9rem;
+  margin: 0 var(--item-margin);
+}
+
+.label-text {
+  position: absolute;
+  padding: 0 var(--padding-sides);
+  font-size: 0.8rem;
+  opacity: 0.7;
+  top: 0.9rem;
+  /** In the select box, clicking the label text focuses the input, but doesn't show the options.
+   * This fixes that, by making the click goes through to the select itself. */
+  pointer-events: none;
+}
+
+.field {
+  background: rgba(0, 0, 0, 0.39);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  font: inherit;
+  padding: 2em var(--padding-sides) 0.8em;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  border: none;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* This prevents a red outline around the form fields during preload in Firefox */
+.field:invalid {
+  box-shadow: none;
+}
+
+.field:focus {
+  outline: none;
+  border-bottom-color: #4b93ff;
+}
+
+/* Hide the number spinner */
+.field::-webkit-inner-spin-button,
+.field::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.select-field {
+  composes: field;
+  -moz-appearance: none;
+}
+
+.select-arrow,
+.number-up-arrow,
+.number-down-arrow {
+  position: absolute;
+  fill: #fff;
+  right: 0.6rem;
+  width: 15px;
+  height: 7px;
+  -webkit-tap-highlight-color: transparent;
+  /* For a larger touch target */
+  padding: 7px;
+}
+
+.select-arrow {
+  top: 50%;
+  transform: translateY(-50%);
+  /** Clicking the arrow focuses the input, but doesn't show the options. This fixes that, by making
+  * the click goes through to the select itself. */
+  pointer-events: none;
+}
+
+.number-up-arrow,
+.number-down-arrow {
+  top: 50%;
+  transform: translateY(-10px) translateY(-50%) scaleY(-1);
+  cursor: pointer;
+}
+
+.number-down-arrow {
+  transform: translateY(10px) translateY(-50%);
+}
+
+.settings-row {
+  display: flex;
+  margin: 0.4rem calc(-1 * var(--item-margin));
+}
+
+@media (min-width: 320px) {
+  .settings-row {
+    margin: 0.8rem calc(-1 * var(--item-margin));
+  }
+}
+
+.settings-row > * {
+  flex: 1;
+}
+
+.start-button {
+  composes: button from "../../utils.css";
+  /** PostCSS seems to be ordering class names incorrectly, meaning I can't override this without
+   * !important */
+  margin: 0 var(--item-margin) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+
+.shortcut-key {
+  composes: keyshortcut from "../../utils.css";
+  /** PostCSS adding classes in wrong order :( */
+  border-color: #000 !important;
+}

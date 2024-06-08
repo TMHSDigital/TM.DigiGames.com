@@ -1,0 +1,80 @@
+/**
+ * Copyright 2019 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.game {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-height: min-content;
+}
+
+.again-button,
+.main-button {
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  /** PostCSS adding classes in wrong order :( */
+  margin: 0.6rem 0rem !important;
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+}
+
+.again-button {
+  composes: button from "../../utils.css";
+  mix-blend-mode: normal !important;
+}
+
+.main-button {
+  composes: button-alt from "../../utils.css";
+  /** PostCSS adding classes in wrong order :( */
+  background: #000 !important;
+}
+
+.exit-row {
+  position: absolute;
+  bottom: 38px;
+  left: 0;
+  right: 0;
+  margin: 0 var(--side-margin);
+}
+
+@media (min-width: 320px) {
+  .exit-row {
+    bottom: 77px;
+  }
+}
+
+@media (min-width: 440px) {
+  .exit-row-inner {
+    display: flex;
+  }
+
+  .again-button,
+  .main-button {
+    /** PostCSS adding classes in wrong order :( */
+    margin: 0.6rem 0.4rem !important;
+  }
+}
+
+.exit-row-inner {
+  max-width: 33rem;
+  margin: 0 auto;
+}
+
+.shortcut-key {
+  composes: keyshortcut from "../../utils.css";
+}
+
+.again-shortcut-key {
+  /** PostCSS adding classes in wrong order :( */
+  border-color: #000 !important;
+}

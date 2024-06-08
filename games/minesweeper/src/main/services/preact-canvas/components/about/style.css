@@ -1,0 +1,86 @@
+/**
+ * Copyright 2019 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.about-wrapper h2 {
+  font-size: 0.9em;
+  padding: 1em 0;
+}
+
+.about-wrapper p {
+  font-size: 0.9em;
+}
+
+.about-wrapper a {
+  color: #3ee5ea;
+}
+
+.shortcut-icon,
+.shortcut-key {
+  border: solid 2px transparent;
+  border-radius: 25%;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 24px;
+  fill: currentColor;
+  flex-shrink: 0;
+  position: relative;
+  top: -0.3em;
+}
+
+.shortcut-key {
+  border-color: #555;
+  text-align: center;
+  line-height: 24px;
+}
+
+.shortcut-list {
+  font-size: 0.9em;
+  padding: 0;
+  list-style: none;
+}
+
+.shortcut-list > li {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.system-data {
+  font-size: 0.6em;
+  padding: 0;
+  list-style: none;
+}
+
+.icon-guide-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.icon-guide-item {
+  font-size: 0.9em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0.4em 0;
+}
+
+@media (min-width: 360px) {
+  .icon-guide-item {
+    width: 50%;
+  }
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+}

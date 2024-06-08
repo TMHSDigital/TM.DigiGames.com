@@ -1,0 +1,178 @@
+/**
+ * Copyright 2019 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.win-screen {
+  display: flex;
+  flex: 1;
+  position: relative;
+  text-align: center;
+  flex-flow: column;
+}
+
+.win-inner {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 500px;
+  padding: var(--bar-avoid) var(--side-margin) 1.3rem;
+  margin: 0 auto;
+}
+
+@keyframes spinCCW {
+  100% {
+    transform: rotate(-315deg);
+  }
+}
+
+.win-square {
+  width: var(--size);
+  padding-top: var(--size);
+  --size: 30%;
+  display: block;
+  margin: 0 auto;
+  border: 3px solid #fff;
+  position: relative;
+  border-radius: 13%;
+  overflow: hidden;
+  animation: spinCCW 20s linear infinite;
+  transform: rotate(45deg);
+  filter: drop-shadow(0 0 10px #fff);
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  z-index: 1;
+}
+
+.win-square::after {
+  content: "";
+  position: absolute;
+  width: var(--size);
+  padding-top: var(--size);
+  --size: 20%;
+  background: #fff;
+  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin90 {
+  50% {
+    transform: rotate(90deg);
+  }
+}
+
+.win-square div {
+  position: absolute;
+  --inset: 6px;
+  top: var(--inset);
+  left: var(--inset);
+  right: var(--inset);
+  bottom: var(--inset);
+  border: 3px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 13%;
+  animation: spin90 10s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.win-square.no-motion {
+  animation: none;
+}
+
+.win-square.no-motion div {
+  transform: rotate(-5deg);
+  animation: none;
+}
+
+.win-state {
+  margin: 1.4rem 0;
+  text-align: center;
+  font-size: inherit;
+  font-weight: normal;
+}
+
+.score-row {
+  position: relative;
+  display: flex;
+  fill: #fff;
+  padding: 2rem 0;
+  margin-bottom: 0.6rem;
+}
+
+.score-row::before,
+.score-row::after {
+  content: "";
+  height: 1px;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: white;
+}
+
+.score-row::after {
+  top: auto;
+  bottom: 0;
+}
+
+.score {
+  flex: 1;
+}
+
+.timer-icon {
+  width: 57px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.time {
+  font-size: 1.2rem;
+}
+
+.time-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.again-button,
+.main-button {
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  /** PostCSS classes in ordering issue, it seems */
+  margin: 1.2rem 0 0 !important;
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+}
+
+.again-button {
+  composes: button from "../../utils.css";
+}
+
+.main-button {
+  composes: button-alt from "../../utils.css";
+}
+
+.grid-name {
+  display: block;
+}
+
+.shortcut-key {
+  composes: keyshortcut from "../../utils.css";
+}
+
+.again-shortcut-key {
+  /** PostCSS adding classes in wrong order :( */
+  border-color: #000 !important;
+}
