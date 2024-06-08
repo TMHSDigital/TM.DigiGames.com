@@ -1,20 +1,37 @@
-body {
-    background: url('../assets/welcome-back-message-on-green-old-terminal-screen-400-108368128.jpg') no-repeat center center fixed;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url('../assets/background.png') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
+    font-family: 'VT323', monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1.title {
-    color: #00ff00; /* Adjust the color to make sure it contrasts well with the background */
+    color: #00ff00;
+    font-size: 3rem; /* Increased font size */
 }
 
 .button.glitch {
     position: relative;
     color: #00ff00;
     background: #000;
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Slightly larger font size */
     overflow: hidden;
     border: 2px solid #00ff00;
+    width: 250px; /* Narrower buttons */
+    height: 60px; /* Taller buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button.glitch::before,
@@ -77,4 +94,12 @@ h1.title {
     100% {
         clip: rect(38px, 9999px, 88px, 0);
     }
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
